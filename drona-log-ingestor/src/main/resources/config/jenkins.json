@@ -1,0 +1,17 @@
+{
+  "jenkins" : {
+  "server": "https://localhost/",
+  "credential": {
+    "principal": "admin",
+    "password": "admin"
+  },
+  "services": [
+    {
+      "name": "pipeline-service",
+      "jobs": [
+        "service-postflight",
+      ]
+    }
+  ]
+}
+}

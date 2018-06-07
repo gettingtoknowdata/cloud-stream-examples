@@ -1,0 +1,32 @@
+spring.cloud.stream:
+      kafka:
+        streams:
+          binder:
+            configuration:
+              commit.interval.ms: 1000
+              default:
+                key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                value.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+          bindings:
+            dbuildEventIn:
+              consumer:
+                keySerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+                valueSerde: org.apache.kafka.common.serialization.Serdes$StringSerde
+
+      bindings:
+
+
+        dbuildEventIn:
+          destination: build-events
+          group: jenkins
+          contentType: application/json
+          consumer:
+            headerMode: raw
+management:
+  endpoint:
+    configprops:
+      enabled: true
+
+spring.config.location: classpath:/jenkins.yaml
+server.port: 8083
