@@ -30,3 +30,13 @@ management:
 
 spring.config.location: classpath:/jenkins.yaml
 server.port: 8083
+---
+jenkins:
+  server: https://localhost/
+  credential:
+    username: admin
+    password: admin
+  services:
+  - name: pipeline-service
+    jobs:
+    - service-postflight
